@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Breach Check | Password Strength Analyzer &amp; Breach Detector{% endblock %}
+
+{% block content %}
+<section class="hero reveal">
+  <p class="eyebrow">Breach Intelligence</p>
+  <h1>Password Breach Detector</h1>
+  <p class="subhead">Client-side SHA-256 hash generation with k-anonymity style prefix lookup. Raw passwords are never transmitted.</p>
+</section>
+
+<section class="grid-two reveal">
+  <article class="panel">
+    <header class="panel-head">
+      <h2>Check Breach Exposure</h2>
+      <p>Enter a password to test against a breach corpus using hash prefix matching.</p>
+    </header>
+
+    <form id="breachForm" class="stack-gap" novalidate>
+      <div class="input-group">
+        <label for="breachPassword">Password to check</label>
+        <div class="password-wrap">
+          <input id="breachPassword" type="password" autocomplete="off" spellcheck="false" required placeholder="Enter password...">
+          <button id="breachToggle" type="button" class="ghost-btn" aria-label="Show password" aria-pressed="false">Show</button>
+        </div>
+      </div>
+
+      <button class="primary-btn" type="submit">Run Breach Check</button>
+    </form>
+
+    <div class="callout small">
+      <p><strong>How it stays private:</strong> SHA-256 hash is computed in-browser. Only the first 6 hash characters are queried.</p>
+    </div>
+  </article>
+
+  <aside class="panel">
+    <header class="panel-head">
+      <h2>Result</h2>
+      <p>Breach status and confidence signal.</p>
+    </header>
+
+    <div id="breachResult" class="result-card neutral" aria-live="polite">
+      <h3 id="resultTitle">Awaiting check</h3>
+      <p id="resultMessage">Submit a password to evaluate breach exposure.</p>
+      <p id="resultMeta" class="result-meta">No lookup performed yet.</p>
+    </div>
+
+    <div class="security-note">
+      <h3>Security Disclaimer</h3>
+      <p>This checker uses a mock breach corpus for demonstration. A "Safe" result means not found in this dataset, not guaranteed security.</p>
+    </div>
+  </aside>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/breach.js') }}" defer></script>
+{% endblock %}

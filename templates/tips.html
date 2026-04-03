@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Security Tips | Password Strength Analyzer &amp; Breach Detector{% endblock %}
+
+{% block content %}
+<section class="hero reveal">
+  <p class="eyebrow">Best Practices</p>
+  <h1>Security Tips</h1>
+  <p class="subhead">Practical habits to reduce account takeover risk and improve credential resilience.</p>
+</section>
+
+<section class="tips-grid reveal">
+  <article class="panel">
+    <h2>Build Strong Passwords</h2>
+    <ul class="clean-list">
+      <li>Use at least 12 to 16 characters.</li>
+      <li>Mix uppercase, lowercase, numbers, and symbols.</li>
+      <li>Avoid personal information, names, and dictionary words.</li>
+      <li>Never reuse passwords across services.</li>
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Use Password Managers</h2>
+    <ul class="clean-list">
+      <li>Generate unique random passwords for every account.</li>
+      <li>Store credentials in an encrypted vault.</li>
+      <li>Enable vault lock and biometric or passphrase protection.</li>
+      <li>Audit weak/reused credentials regularly.</li>
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Enable Multi-Factor Authentication</h2>
+    <ul class="clean-list">
+      <li>Turn on MFA for email, banking, cloud, and social accounts.</li>
+      <li>Prefer authenticator apps or hardware keys over SMS.</li>
+      <li>Store backup recovery codes in a secure offline location.</li>
+      <li>Review account sign-in alerts and device sessions.</li>
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Respond to Breaches Quickly</h2>
+    <ul class="clean-list">
+      <li>Change affected passwords immediately.</li>
+      <li>Invalidate old sessions and tokens.</li>
+      <li>Rotate secrets for critical accounts first.</li>
+      <li>Monitor suspicious activity for at least 30 days.</li>
+    </ul>
+  </article>
+</section>
+{% endblock %}

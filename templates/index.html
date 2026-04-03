@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Password Strength Analyzer &amp; Breach Detector{% endblock %}
+
+{% block content %}
+<section class="hero reveal">
+  <p class="eyebrow">Cybersecurity Toolkit</p>
+  <h1>Password Strength Analyzer &amp; Breach Detector</h1>
+  <p class="subhead">Evaluate password resilience in real time and verify breach exposure with a privacy-first SHA-256 workflow.</p>
+</section>
+
+<section class="grid-two reveal">
+  <article class="panel analyzer-panel">
+    <header class="panel-head">
+      <h2>Live Password Strength Analyzer</h2>
+      <p>Checks length, uppercase, lowercase, number, and symbol complexity instantly.</p>
+    </header>
+
+    <div class="input-group">
+      <label for="analyzerPassword">Enter password to analyze</label>
+      <div class="password-wrap">
+        <input id="analyzerPassword" type="password" autocomplete="off" spellcheck="false" placeholder="Type a password..." aria-describedby="strengthLabel">
+        <button id="analyzerToggle" type="button" class="ghost-btn" aria-label="Show password" aria-pressed="false">Show</button>
+      </div>
+    </div>
+
+    <div class="meter" role="img" aria-label="Password strength meter">
+      <div id="strengthFill" class="meter-fill"></div>
+    </div>
+    <p id="strengthLabel" class="status neutral" aria-live="polite">Strength: Waiting for input</p>
+
+    <ul class="criteria-list" aria-label="Password requirements checklist">
+      <li id="ruleLength">At least 12 characters</li>
+      <li id="ruleUpper">At least one uppercase letter</li>
+      <li id="ruleLower">At least one lowercase letter</li>
+      <li id="ruleNumber">At least one number</li>
+      <li id="ruleSymbol">At least one special symbol</li>
+    </ul>
+
+    <div class="panel-subsection">
+      <h3>Suggestions</h3>
+      <ul id="suggestionsList" class="suggestion-list" aria-live="polite">
+        <li>Start typing to receive guidance.</li>
+      </ul>
+    </div>
+
+    <div class="btn-row">
+      <button id="generatePasswordBtn" class="primary-btn" type="button">Generate Strong Password</button>
+      <button id="copySecureBtn" class="secondary-btn" type="button">Copy Secure Password</button>
+    </div>
+  </article>
+
+  <aside class="panel info-panel">
+    <header class="panel-head">
+      <h2>Scoring Model</h2>
+      <p>Composite scoring based on length, character diversity, repetition risk, and known weak patterns.</p>
+    </header>
+    <div class="stats-grid">
+      <div>
+        <h3 id="scoreValue">0/100</h3>
+        <p>Strength score</p>
+      </div>
+      <div>
+        <h3 id="entropyValue">0 bits</h3>
+        <p>Estimated entropy</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p><strong>Privacy first:</strong> Password analysis runs entirely in your browser. Nothing is persisted.</p>
+    </div>
+  </aside>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/analyzer.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}About | Password Strength Analyzer &amp; Breach Detector{% endblock %}
+
+{% block content %}
+<section class="hero reveal">
+  <p class="eyebrow">Project Overview</p>
+  <h1>About This Project</h1>
+  <p class="subhead">A modern cybersecurity-focused web application for password quality analysis and breach awareness.</p>
+</section>
+
+<section class="grid-two reveal">
+  <article class="panel">
+    <h2>Mission</h2>
+    <p>Help users make stronger password decisions through clear feedback, privacy-preserving breach checks, and practical security education.</p>
+
+    <h2>Privacy &amp; Security Model</h2>
+    <ul class="clean-list">
+      <li>No password storage on client or server.</li>
+      <li>Client-side SHA-256 hashing before lookup.</li>
+      <li>K-anonymity style prefix matching endpoint.</li>
+      <li>Mock breach corpus support for offline demonstration.</li>
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Technology Stack</h2>
+    <ul class="clean-list">
+      <li>Backend: Python + Flask</li>
+      <li>Frontend: HTML5, CSS3, Vanilla JavaScript</li>
+      <li>Architecture: Multi-page templates + static assets</li>
+      <li>UX: Responsive layout, accessibility support, smooth transitions</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Important:</strong> Any breach tool should be used with broader defenses like MFA, password managers, and security monitoring.</p>
+    </div>
+  </article>
+</section>
+{% endblock %}
